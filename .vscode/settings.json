@@ -1,0 +1,11 @@
+{
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  // yarnを使う
+  "eslint.packageManager": "yarn",
+  // workspaceを指定する。CWDも変えたい。
+  "eslint.workingDirectories": [
+    { "directory": "./packages/enterprise", "changeProcessCWD": true },
+    { "directory": "./packages/shared", "changeProcessCWD": true }
+  ],
+  "stylelint.validate": ["css", "scss"]
+}

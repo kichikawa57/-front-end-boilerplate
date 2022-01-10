@@ -1,0 +1,12 @@
+/* 画像サイズによってフォントサイズを変える */
+@function getVw($size: 10, $viewport: $X_LARGE_SCREEN_WIDTH) {
+  @return $size / $viewport * 100vw;
+}
+
+/* 画像サイズによってフォントサイズを変える */
+@mixin fontVw($fontSize: 10, $viewport: $X_LARGE_SCREEN_WIDTH) {
+  /* stylelint-disable declaration-block-no-duplicate-properties */
+  font-size: $fontSize * 1px;
+  font-size: $fontSize / $viewport * 100vw;
+  /* stylelint-enable declaration-block-no-duplicate-properties */
+}
