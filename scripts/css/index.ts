@@ -18,14 +18,13 @@ import {
   readFile,
   log
 } from '../helper/utils';
-import stylelint from 'stylelint';
 import postcssReporter from 'postcss-reporter';
 import nested from 'postcss-nested';
 import cssnano from 'cssnano';
 import { Chokidar } from '../helper/watch';
 
 const styleLintPlugin: AcceptedPlugin[] = [
-  stylelint(),
+  require('stylelint'),
   postcssReporter({ clearReportedMessages: true })
 ];
 

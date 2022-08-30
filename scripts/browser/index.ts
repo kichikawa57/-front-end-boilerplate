@@ -7,6 +7,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 
 import webpackConfig from '../js/webpack.config';
 import { DIR } from '../constants';
+
 import { conf } from '../config';
 
 const defaultStatsOptions = {
