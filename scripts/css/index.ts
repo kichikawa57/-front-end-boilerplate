@@ -116,6 +116,10 @@ const render = async (
 
   if (!postCssResult.resolve) {
     log('error', `postCss Error ${entry}`);
+    log(
+      'error',
+      postCssResult.reject ? postCssResult.reject.message : 'no error'
+    );
     return err(postCssResult.reject);
   }
 
@@ -238,7 +242,17 @@ export const watchStyle = async (entry: string, option: IOptions = {}) => {
   chokidarShared.watcher({
     change: async () => {
       log('success', `entry style all`);
-      await renderStyles(entry, option);
+      await renderStyles(entry, {
+        ...option,
+        ignore: option.ignore
+          ? typeof option.ignore === 'string'
+            ? [`${DIR.SRC}/${DIR.SHARED}/**/_*${EXTENSION.SCSS}`, option.ignore]
+            : [
+                `${DIR.SRC}/${DIR.SHARED}/**/_*${EXTENSION.SCSS}`,
+                ...option.ignore
+              ]
+          : [`${DIR.SRC}/${DIR.SHARED}/**/_*${EXTENSION.SCSS}`]
+      });
     }
   });
 

@@ -72,7 +72,8 @@ const webpackConf: Configuration = {
         test: /\.(vert|frag|glsl)$/i,
         use: [{ loader: 'raw-loader' }, { loader: 'glslify-loader' }],
         exclude: /node_modules/
-      }
+      },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] }
     ]
   },
   optimization: {

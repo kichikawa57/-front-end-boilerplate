@@ -10,3 +10,15 @@
   font-size: $fontSize / $viewport * 100vw;
   /* stylelint-enable declaration-block-no-duplicate-properties */
 }
+
+@function rem($size: 10) {
+  @return $size / $REM_SIZE * 1rem;
+}
+
+@function lineHeight($designSize, $fontSize) {
+  @return $designSize / $fontSize;
+}
+
+@function spacing($designSpace) {
+  @return $designSpace / 1000 * 1em;
+}

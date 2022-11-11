@@ -1,13 +1,23 @@
 html {
-  font-size: 62.5%;
   overflow-y: visible;
+  font-size: calc(100vw * #{$REM_SIZE} / #{$XX_LARGE_SCREEN_WIDTH});
+
+  @include xxLargeScreenWidthLess {
+    font-size: calc(100vw * #{$REM_SIZE} / #{$X_LARGE_SCREEN_WIDTH});
+  }
+
+  @include xLargeScreenWidthLess {
+    font-size: calc(100vw * #{$REM_SIZE} / #{$X_LARGE_SCREEN_WIDTH});
+  }
+
+  @include largeScreenWidthLess {
+    font-size: calc(100vw * #{$REM_SIZE} / #{$SMALL_SCREEN_WIDTH});
+  }
 }
 
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  line-height: 1.4;
-  letter-spacing: .15em;
   position: relative;
 }
 
